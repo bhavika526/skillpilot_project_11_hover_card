@@ -1,0 +1,225 @@
+
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4fa;
+    color: #333;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 45px 20px;
+    background: linear-gradient(135deg, #5d4de8, #9274f5);
+    color: white;
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.header p {
+    font-size: 16px;
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 25px;
+}
+
+/* Card grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Individual card */
+.card {
+    position: relative;
+    height: 270px;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+/* Different card backgrounds */
+.card-one {
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+.card-two {
+    background: linear-gradient(135deg, #4776e6, #8e54e9);
+}
+
+.card-three {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.card-four {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+.card-five {
+    background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+}
+
+.card-six {
+    background: linear-gradient(135deg, #654ea3, #eaafc8);
+}
+
+/* Front content */
+.card-front {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 25px;
+    transition: opacity 0.4s ease,
+                transform 0.4s ease;
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.card-front h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.card-front p {
+    font-size: 15px;
+}
+
+.hint {
+    margin-top: 22px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Hidden back content */
+.card-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    color: white;
+    background: rgba(25, 25, 45, 0.92);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease,
+                transform 0.4s ease;
+}
+
+.card-back h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.card-back p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 9px 18px;
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* TASK 2: Hover pseudo-class */
+.card:hover .card-front,
+.card:focus .card-front {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.card:hover .card-back,
+.card:focus .card-back {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card hover animation */
+.card:hover,
+.card:focus {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.20);
+}
+
+/* Keyboard focus */
+.card:focus-visible {
+    outline: 3px solid #3322bb;
+    outline-offset: 4px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 22px;
+    background: #25243a;
+    color: white;
+    font-size: 14px;
+}
+
+/* TASK 3: Responsive design */
+
+/* Tablet screens */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        padding: 25px 18px;
+    }
+
+    .card {
+        height: 250px;
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card-front,
+    .card-back {
+        transition: none;
+    }
+}
